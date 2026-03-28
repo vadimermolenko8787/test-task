@@ -99,7 +99,9 @@ curl -X POST http://localhost:8000/api/sum-even \
 ├── controllers/
 │   └── ApiController.php                   # обробка POST /api/sum-even
 ├── dto/
-│   └── NumbersDto.php                      # валідація вхідних даних
+│   └── NumbersDto.php                      # readonly DTO для передачі даних у сервіс
+├── requests/
+│   └── NumbersRequest.php                  # валідація вхідних даних (extends Model)
 ├── nginx/
 │   └── default.conf                        # конфігурація Nginx
 ├── tests/

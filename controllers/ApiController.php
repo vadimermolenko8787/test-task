@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\components\interfaces\EvenSumCalculatorInterface;
 use app\dto\NumbersDto;
+use app\requests\NumbersRequest;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -27,13 +28,15 @@ class ApiController extends Controller
     {
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
-        $dto = new NumbersDto();
-        $dto->load(\Yii::$app->request->getBodyParams(), '');
+        $request = new NumbersRequest();
+        $request->load(\Yii::$app->request->getBodyParams(), '');
 
-        if (!$dto->validate()) {
+        if (!$request->validate()) {
             \Yii::$app->response->statusCode = 400;
-            return $this->asJson(['errors' => $dto->getErrors()]);
+            return $this->asJson(['errors' => $request->getErrors()]);
         }
+
+        $dto = new NumbersDto($request->numbers);
 
         return $this->asJson(['sum' => $this->calculator->calculate($dto->numbers)]);
     }
