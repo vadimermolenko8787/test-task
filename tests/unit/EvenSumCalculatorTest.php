@@ -33,4 +33,14 @@ class EvenSumCalculatorTest extends TestCase
     {
         $this->assertSame(-6, $this->calculator->calculate([-2, -4, 1, 3]));
     }
+
+    public function testZeroIsEven(): void
+    {
+        $this->assertSame(0, $this->calculator->calculate([0, 1, 3]));
+    }
+
+    public function testAllEvenNumbers(): void
+    {
+        $this->assertSame(12, $this->calculator->calculate([2, 4, 6]));
+    }
 }
