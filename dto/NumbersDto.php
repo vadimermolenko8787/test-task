@@ -6,7 +6,7 @@ use yii\base\Model;
 
 class NumbersDto extends Model
 {
-    public $numbers;
+    public array $numbers = [];
 
     public function rules(): array
     {
