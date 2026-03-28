@@ -23,7 +23,7 @@ class ApiController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    public function actionSum(): Response
+    public function actionSumEven(): Response
     {
         \Yii::$app->response->format = Response::FORMAT_JSON;
 

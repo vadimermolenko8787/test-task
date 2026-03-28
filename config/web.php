@@ -54,7 +54,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'POST api/sum' => 'api/sum',
+                'POST api/sum-even' => 'api/sum-even',
             ],
         ],
     ],
