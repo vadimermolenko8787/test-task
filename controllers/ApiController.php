@@ -36,6 +36,8 @@ class ApiController extends Controller
             return $this->asJson(['errors' => $request->getErrors()]);
         }
 
+        // В рамках даного завдання DTO є надлишковим — сервіс приймає array.
+        // Додано для демонстрації патерну передачі даних через DTO між шарами.
         $dto = new NumbersDto($request->numbers);
 
         return $this->asJson(['sum' => $this->calculator->calculate($dto->numbers)]);
