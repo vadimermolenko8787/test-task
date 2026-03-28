@@ -1,11 +1,8 @@
 up:
-	docker-compose up -d
+	docker-compose up -d --build
 
 down:
 	docker-compose down
-
-install:
-	docker-compose exec php composer install
 
 test:
 	docker-compose exec php vendor/bin/phpunit
