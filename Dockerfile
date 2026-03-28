@@ -2,7 +2,7 @@
 FROM composer:latest AS vendor
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
+RUN composer install --optimize-autoloader --no-interaction --ignore-platform-reqs
 
 # Stage 2: production image
 FROM php:8.3-fpm-alpine
